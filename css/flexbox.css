@@ -1,0 +1,144 @@
+/*cabecera*/
+.cabecera__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top:0;
+}
+
+.cabecera__buscar__item{
+    display:none;
+}
+/*menu*/
+.menu__container{  
+    position: fixed; /*el menu se ubico en la parte izquierda*/
+    bottom: 0%; /*el menu  se ubica asi en la parte inferior */
+    height: 75px; /* le achico la altura y queda en la parte inferior pero a la izquierda , aun no ocupa el ancho total del navegador */
+    width: 100%; /*esto es para que ocupe el ancho del navegador */
+}
+
+.menu__lista{
+    display: flex;
+    justify-content: space-around; /*distribuye los elementos quedando un espacio parejo entre ellos */
+    height: 100%;
+
+}
+
+.menu__lista li{
+align-self: center; /*esta propiedad trabaja con los elementos hijos, centro los elementos de la lista*/
+
+}
+
+.menu__itens{
+    display: flex;
+    flex-direction: column; /*el texto se posiciona debajo del icono */
+    gap:5px; /*el texto se separa del icono */
+}
+
+.menu__lista:nth-child(2), /*selecciono las listas 2,3,4 */
+.menu__lista:nth-child(3),
+.menu__lista:nth-child(4){
+    display: none; /*con esta propiedad las oculto */
+}
+    
+
+
+
+/*seccion superior*/
+.superior__seccion__container{
+    display: flex;
+    align-items: center;/* los textos se ubican en el centro */
+    white-space:nowrap ;/*los textos quedan en una sola linea */
+    overflow: scroll;/*agrega una barra de desplazamiento horizontal */
+    gap: 15px;
+}
+
+/*seccion videos*/
+.videos__item{
+    height: 303px;
+    width: 280px;
+    flex-grow: 1;
+    }
+
+.videos__container{
+    display: flex;
+    flex-wrap:wrap ;
+    gap:10px;
+
+    }
+
+/*footer o rodapie*/
+.rodapie__container{
+    display: flex;
+/*flex-direction: column;
+flex-wrap: wrap; */
+    flex-flow:column wrap ;/*reemplaza las dos lineas anteriores, los elementos de las listas del footer se separan entre si */
+
+}
+/*media querie para tablet*/
+    @media (min-width:834px){
+    /*cabecera*/
+
+    .cabecera__buscar__item{
+        display:block;
+    }
+
+    /*footer o radapie*/
+    .rodapie__container{
+        justify-content: space-between; /*las columnas se separan un poco entre si */
+    }
+    
+        .menu__container {
+            left: 0;
+            height: auto;
+            width: 74px;
+            top: 80px;
+        }
+        
+        .menu__lista {
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 15px;
+            gap: 33px;
+        }
+        
+
+}
+/* media querie para equipos de escritorio*/
+@media (min-width:1440px){
+    .menu__container{
+        width: 239px;
+        overflow: scroll;
+    }
+    .menu__lista:nth-child(2), 
+    .menu__lista:nth-child(3),
+    .menu__lista:nth-child(4){
+        display: flex;
+    }
+    .menu__lista{
+        height: auto;
+        padding: 20px 17px 20px 15px;
+        gap:15px;
+    }
+
+    .menu__lista:nth-child(3){
+        flex-direction: column-reverse;
+    }
+    .menu__itens{
+        flex-direction: row;
+        gap: 15px;
+        align-items: center;
+    }
+    .videojuegos{
+        order: 3;
+    }
+
+    .peliculas{
+        order:2;
+    }
+
+    .premium{
+        order:1;
+    }
+}
